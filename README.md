@@ -27,7 +27,7 @@ O arquivo main herda todos outros arquivos e cria um menu onde voce pode realiza
 # Como usar:
 Primeiramente você precisa de todas dependencias instaladas, entre elas são:
 
--  axlxs
+-  axlsx
 -  csv
 -  mongo
 -  httparty
