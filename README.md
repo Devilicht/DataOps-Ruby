@@ -1,7 +1,7 @@
 # DataOPS Ruby
 O projeto consiste com uma funcionalidade de fazer o download dos arquivos .ESTABELE do site do governo, inserir tudo no mongoDB e manipulando seus dados diretamente do DB. Agora um pouco dos seus topicos.
 
-## Tecnologias e dependecias:
+## Tecnologias:
 - Docker : Foi usado o docker por ser mais pratico e facil "subir" a imagem do banco de dados usando conteiner, porem em uma situação de produção seria necessario ter cuidado com os dados. Observação: É usado os "volumes",então é feito um espaço compartilhado entre o container e o host, devido a isso se excluir ou derrubar o conteiner não sera perdido o dados do DB. Caso já tenha o mongo instalado e funcionando na sua máquina, não é necessária o uso do docker compose.
 
 ## Objetivos dos arquivos:
