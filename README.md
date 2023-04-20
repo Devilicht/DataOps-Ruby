@@ -20,7 +20,7 @@ O projeto consiste com uma funcionalidade de fazer o download dos arquivos .ESTA
 O arquivo main herda todos outros arquivos e cria um menu onde voce pode realizar o download,descompactar, ler os arquivos e criar hashs inserindo-os no banco de dados,receber o percentual de empresas ativas, contagem de empresas abertar por ano, número de empresas num raio de 5km do cep "01422-000",tabela de correlação entre NAE FISCAL PRINCIPAL e SECUNDÁRIA, além de voce poder exportar todas essas informações em um arquivo .csv ou .xlxs que é exportado para a pasta "exports".
 
 # Como usar:
-Primeiramente você precisa de todas dependencias instaladas, entre elas são:
+Primeiramente você precisa de todas dependencias instaladas além de subir o docker compose, entre elas são:
 
 - gem install axlxs
 - gem install csv
@@ -33,3 +33,7 @@ Sendo assim, só iniciar o arquivo main.rb e seguir o menu.
 Segue um video com uma explicação melhor sobre:
 
 
+
+
+
+<iframe width="560" height="315" src="https://drive.google.com/file/d/1Mdw6D_yRJp3e547debwiinDTvC6E_dcp/view?usp=share_link" frameborder="0" allowfullscreen></iframe>
