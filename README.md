@@ -35,5 +35,4 @@ Segue um video com uma explicação melhor sobre:
 
 
 
-
-<iframe width="560" height="315" src="https://drive.google.com/file/d/1Mdw6D_yRJp3e547debwiinDTvC6E_dcp/view?usp=share_link" frameborder="0" allowfullscreen></iframe>
+"https://drive.google.com/file/d/1Mdw6D_yRJp3e547debwiinDTvC6E_dcp/view?usp=share_link"
