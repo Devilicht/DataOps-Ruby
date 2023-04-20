@@ -22,10 +22,12 @@ O arquivo main herda todos outros arquivos e cria um menu onde voce pode realiza
 # Como usar:
 Primeiramente você precisa de todas dependencias instaladas além de subir o docker compose, entre elas são:
 
-- gem install axlxs
-- gem install csv
-- gem install mongo
-- gem install httparty
+-  axlxs
+-  csv
+-  mongo
+-  httparty
+
+No projeto tem o arquivo "Gemfile" que ao você executar o comando "bundle install" ele ja instala todos pacotes.
 
 E para os script shell conseguirem ser executados é necessario um "chmod +x features/bh/setupLinux.sh","chmod +x features/bh/unzipLinux.sh" estando no linux para ter permissão de executar o arquivo.
 Sendo assim, só iniciar o arquivo main.rb e seguir o menu.
