@@ -2,7 +2,7 @@
 O projeto consiste com uma funcionalidade de fazer o download dos arquivos .ESTABELE do site do governo, inserir tudo no mongoDB e manipulando seus dados diretamente do DB. Agora um pouco dos seus topicos.
 
 ## Tecnologias e dependecias:
-- Docker : Foi usado o docker por ser mais pratico e facil "subir" a imagem do banco de dados usando conteiner, porem em uma situação de produção seria necessario ter cuidado com os dados. Observação: É usado os "volumes",então é feito um espaço compartilhado entre o container e o host, devido a isso se excluir ou derrubar o conteiner não sera perdido o dados do DB.
+- Docker : Foi usado o docker por ser mais pratico e facil "subir" a imagem do banco de dados usando conteiner, porem em uma situação de produção seria necessario ter cuidado com os dados. Observação: É usado os "volumes",então é feito um espaço compartilhado entre o container e o host, devido a isso se excluir ou derrubar o conteiner não sera perdido o dados do DB. Caso já tenha o mongo instalado e funcionando na sua máquina, não é necessária o uso do docker compose.
 
 ## Objetivos dos arquivos:
 
@@ -20,7 +20,7 @@ O projeto consiste com uma funcionalidade de fazer o download dos arquivos .ESTA
 O arquivo main herda todos outros arquivos e cria um menu onde voce pode realizar o download,descompactar, ler os arquivos e criar hashs inserindo-os no banco de dados,receber o percentual de empresas ativas, contagem de empresas abertar por ano, número de empresas num raio de 5km do cep "01422-000",tabela de correlação entre CNAE FISCAL PRINCIPAL e SECUNDÁRIA, além de voce poder exportar todas essas informações em um arquivo .csv ou .xlxs que é exportado para a pasta "exports".
 
 # Como usar:
-Primeiramente você precisa de todas dependencias instaladas além de subir o docker compose, entre elas são:
+Primeiramente você precisa de todas dependencias instaladas, entre elas são:
 
 -  axlxs
 -  csv
