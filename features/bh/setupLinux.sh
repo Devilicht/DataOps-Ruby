@@ -1,0 +1,10 @@
+wget -c https://dadosabertos.rfb.gov.br/CNPJ/Estabelecimentos0.zip -P ./DataCNPJ/zip
+wget -c https://dadosabertos.rfb.gov.br/CNPJ/Estabelecimentos1.zip -P ./DataCNPJ/zip
+wget -c https://dadosabertos.rfb.gov.br/CNPJ/Estabelecimentos2.zip -P ./DataCNPJ/zip
+wget -c https://dadosabertos.rfb.gov.br/CNPJ/Estabelecimentos3.zip -P ./DataCNPJ/zip
+wget -c https://dadosabertos.rfb.gov.br/CNPJ/Estabelecimentos4.zip -P ./DataCNPJ/zip
+wget -c https://dadosabertos.rfb.gov.br/CNPJ/Estabelecimentos5.zip -P ./DataCNPJ/zip
+wget -c https://dadosabertos.rfb.gov.br/CNPJ/Estabelecimentos6.zip -P ./DataCNPJ/zip
+wget -c https://dadosabertos.rfb.gov.br/CNPJ/Estabelecimentos7.zip -P ./DataCNPJ/zip
+wget -c https://dadosabertos.rfb.gov.br/CNPJ/Estabelecimentos8.zip -P ./DataCNPJ/zip
+wget -c https://dadosabertos.rfb.gov.br/CNPJ/Estabelecimentos9.zip -P ./DataCNPJ/zip
