@@ -3,6 +3,7 @@ require 'axlsx'
 require_relative './features/hashs.rb'
 require_relative './db/mongo.rb'
 require_relative './features/getLocation.rb'
+require_relative './features/createArchives.rb'
 
 mongo = MongoInfoCompanies.new
 
@@ -58,89 +59,15 @@ loop do
     end
 
   when 8
-    print "escolha o nome do arquivo: "
-    filename =gets.chomp.to_s
-    puts "criando arquivo, aguarde..."
-    CSV.open("./exports/#{filename}.csv", "wb") do |csv|
-
-      percentual = mongo.percent_active_companies
-      csv << ["Percentual de empresas ativas", "#{(percentual).round(2)}%"]
-      csv << []
-
-      cursor = mongo.count_restaurant_openings_by_year
-      csv << ["Aberturas Anuais", "Data", "Quantidade"]
-      cursor.each do |document|
-        year = document['_id']
-        count = document['count']
-        csv << ["Aberturas Anuais", "#{year}", count]
-      end
-      csv << []
-
-      target = '01422-000'
-      ceps = mongo.formatted_cep
-      nearby_zipcodes_count = find_nearby_zipcodes(ceps, target)
-      csv << ["CEPs próximos a #{target}", "Número de CEPs próximos", nearby_zipcodes_count]
-      csv << []
-
-      table = mongo.correlation_table
-      csv << ["Tabela de correlação", "CNAE fiscal principal", "CNAE fiscal secundária"]
-      table.each do |row|
-        primary_cnae = row['_id']['CNAE FISCAL PRINCIPAL']
-        secondary_cnae = row['_id']['CNAE FISCAL SECUNDARIA']
-        csv << ["Tabela de correlação", primary_cnae, secondary_cnae]
-      end
-      puts "Arquivo #{filename} criado."
-    end
+    create_csv(mongo)
 
   when 9
-    print "Digite o nome do arquivo a ser criado: "
-      filename = gets.chomp.to_s
-      puts "Criando arquivo, aguarde..."
-
-      Axlsx::Package.new do |wk|
-        wk.use_shared_strings = true
-        wk.workbook.add_worksheet(name: "Dados") do |sheet|
-
-          centered_style = sheet.styles.add_style(alignment: {horizontal: :center})
-
-          cursor = mongo.count_restaurant_openings_by_year
-          percentual = mongo.percent_active_companies
-          sheet.add_row ["Porcentagem de empresas ativas", "", "", "Quantidade de aberturas anuais"], style: centered_style
-          sheet.add_row ["#{percentual}%", "", "", "Ano", "Quantidade"], style: centered_style
-          cursor.each do |document|
-            year = document['_id']
-            count = document['count']
-            sheet.add_row [ "", "", "", year, count], style: centered_style
-          end
-          sheet.add_row [], style: centered_style
-
-          target = '01422-000'
-          ceps = mongo.formatted_cep
-          nearby_zipcodes_count = find_nearby_zipcodes(ceps, target)
-
-
-
-          table = mongo.correlation_table
-          sheet.add_row [ "Tabela de correlação", "", "", "CEPs próximos a #{target}"], style: centered_style
-          sheet.add_row ["CNAE fiscal principal", "CNAE fiscal secundária", "", nearby_zipcodes_count], style: centered_style
-          table.each do |row|
-            primary_cnae = row['_id']['CNAE FISCAL PRINCIPAL']
-            secondary_cnae = row['_id']['CNAE FISCAL SECUNDARIA']
-            sheet.add_row [primary_cnae, secondary_cnae], style: centered_style
-          end
-        end
-        puts "arquivo #{filename} criado."
-
-        wk.serialize("./exports/#{filename}.xlsx")
-
-      end
+    create_xlsx(mongo)
 
   when 0
-
     break
 
   else
-
     puts "Opção inválida!"
 
   end
