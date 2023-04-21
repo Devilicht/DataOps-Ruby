@@ -3,7 +3,7 @@ O projeto consiste com uma funcionalidade de fazer o download dos arquivos .ESTA
 
 ## Tecnologias:
 
-- Ruby : Usado para criar toda a logica e funcionalidade da aplicação.
+- Ruby 3.0.2 : Usado para criar toda a logica e funcionalidade da aplicação.
 
 - Shell Script : Comandos em shell para realizar tarefas de downloads e unzip.
 
@@ -17,12 +17,12 @@ O projeto consiste com uma funcionalidade de fazer o download dos arquivos .ESTA
 
 - hashs.rb : Esse tem uma função le todos arquivos que estão em DataCNPJ/unzipped e cria hashs para cada estabelecimento.
 
-- getLocation : Logica que faz a comparação de distancia entre o cep "01422-000" com todos outros que estão no cando de dados. Utiliza a API nomatim para converter o CEP em coordenadas geograficas latitute e longitute,depois calculo a distancia entre os dois pontos usando formula de haversine, é uma equação usada para calcular a distância entre dois pontos em uma esfera, como a Terra.
+- getLocation.rb : Logica que faz a comparação de distancia entre o cep "01422-000" com todos outros que estão no cando de dados. Utiliza a API nomatim para converter o CEP em coordenadas geograficas latitute e longitute,depois calculo a distancia entre os dois pontos usando formula de haversine, é uma equação usada para calcular a distância entre dois pontos em uma esfera, como a Terra.
 
 - mongo.rb : Tem uma classe que recebe parametros de conexão com o banco de dados e tem modulos que realizam consultas necessarias para a funcionalidade da aplicação.
 
 ## Main.rb
-O arquivo main herda todos outros arquivos e cria um menu onde voce pode realizar o download,descompactar, ler os arquivos e criar hashs inserindo-os no banco de dados,receber o percentual de empresas ativas, contagem de empresas abertar por ano, número de empresas num raio de 5km do cep "01422-000",tabela de correlação entre CNAE FISCAL PRINCIPAL e SECUNDÁRIA, além de voce poder exportar todas essas informações em um arquivo .csv ou .xlxs que é exportado para a pasta "exports".
+O arquivo main herda todos outros arquivos e cria um menu onde voce pode realizar o download,descompactar, ler os arquivos e criar hashs inserindo-os no banco de dados,receber o percentual de empresas ativas, contagem de empresas abertar por ano, número de empresas num raio de 5km do cep "01422-000",tabela de correlação entre CNAE FISCAL PRINCIPAL e SECUNDÁRIA, além de voce poder exportar todas essas informações em um arquivo .csv ou .xlsx que é exportado para a pasta "exports".
 
 # Como usar:
 Primeiramente você precisa de todas dependencias instaladas, entre elas são:

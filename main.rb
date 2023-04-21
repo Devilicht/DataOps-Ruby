@@ -22,29 +22,13 @@ loop do
   escolha = gets.chomp.to_i
 
   case escolha
-    
+
 
   when 1
-    print "Escolha o sistema operacional (win/linux): "
-    choice = gets.chomp.to_s.downcase
-    if choice == "win"
-      system("./features/bh/setupWin.bat")
-    elsif choice == "linux"
       system("./features/bh/setupLinux.sh")
-    else
-      puts "Escolha uma opção valida."
-    end
 
   when 2
-    print "Escolha o sistema operacional (win/linux): "
-    choice = gets.chomp.to_s.downcase
-    if choice == "win"
-      system("./features/bh/unzipWin.bat")
-    elsif choice == "linux"
       system("./features/bh/unzipLinux.sh")
-    else
-      puts "Escolha uma opção valida."
-    end
 
   when 3
     mongo.add_companies(create_hashes())
@@ -114,53 +98,51 @@ loop do
       puts "Criando arquivo, aguarde..."
 
       Axlsx::Package.new do |wk|
+        wk.use_shared_strings = true
         wk.workbook.add_worksheet(name: "Dados") do |sheet|
 
           centered_style = sheet.styles.add_style(alignment: {horizontal: :center})
 
-          sheet.add_row ["Índice", "Seção"], style: centered_style
-          sheet.add_row ["1", "Percentual de empresas ativas"], style: centered_style
-          sheet.add_row ["2", "Aberturas anuais"], style: centered_style
-          sheet.add_row ["3", "CEPs próximos a 01422-000"], style: centered_style
-          sheet.add_row ["4", "Tabela de correlação"], style: centered_style
-          sheet.add_row [], style: centered_style
-
-          percentual = mongo.percent_active_companies
-          sheet.add_row ["1", "Porcentagem de empresas ativas", "#{percentual}%"], style: centered_style
-          sheet.add_row [], style: centered_style
-
           cursor = mongo.count_restaurant_openings_by_year
-          sheet.add_row ["2", "Quantidade de aberturas anuais"], style: centered_style
-          sheet.add_row ["", "Ano", "Quantidade"], style: centered_style
+          percentual = mongo.percent_active_companies
+          sheet.add_row ["Porcentagem de empresas ativas", "", "", "Quantidade de aberturas anuais"], style: centered_style
+          sheet.add_row ["#{percentual}%", "", "", "Ano", "Quantidade"], style: centered_style
           cursor.each do |document|
             year = document['_id']
             count = document['count']
-            sheet.add_row ["", year, count], style: centered_style
+            sheet.add_row [ "", "", "", year, count], style: centered_style
           end
           sheet.add_row [], style: centered_style
 
           target = '01422-000'
           ceps = mongo.formatted_cep
           nearby_zipcodes_count = find_nearby_zipcodes(ceps, target)
-          sheet.add_row ["3", "CEPs próximos a #{target}", nearby_zipcodes_count], style: centered_style
-          sheet.add_row [], style: centered_style
+
+
 
           table = mongo.correlation_table
-          sheet.add_row ["4", "Tabela de correlação"], style: centered_style
-          sheet.add_row ["", "CNAE fiscal principal", "CNAE fiscal secundária"], style: centered_style
+          sheet.add_row [ "Tabela de correlação", "", "", "CEPs próximos a #{target}"], style: centered_style
+          sheet.add_row ["CNAE fiscal principal", "CNAE fiscal secundária", "", nearby_zipcodes_count], style: centered_style
           table.each do |row|
             primary_cnae = row['_id']['CNAE FISCAL PRINCIPAL']
             secondary_cnae = row['_id']['CNAE FISCAL SECUNDARIA']
-            sheet.add_row ["", primary_cnae, secondary_cnae], style: centered_style
+            sheet.add_row [primary_cnae, secondary_cnae], style: centered_style
           end
         end
         puts "arquivo #{filename} criado."
 
         wk.serialize("./exports/#{filename}.xlsx")
+
       end
+
   when 0
+
     break
+
   else
+
     puts "Opção inválida!"
+
   end
+
 end

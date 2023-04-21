@@ -9,4 +9,4 @@ do
   unzip -q "$arquivo_zip" -d "$pasta_unzip"
 
 done
-echo "Descompactação e renomeação concluídas."
+echo "Descompactação concluídas."
