@@ -40,7 +40,7 @@ def find_nearby_zipcodes(zipcodes, target_zipcode)
     begin
       coordinates = get_coordinates_by_zipcode(zipcode)
       distance = haversine_distance(target_coordinates[0], target_coordinates[1], coordinates[0], coordinates[1])
-      if distance <= 5 
+      if distance <= 5
         nearby_zipcodes += 1
       end
     rescue NoMethodError

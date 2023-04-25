@@ -20,16 +20,16 @@ loop do
   puts "9 - Criar .xlxs com a opção 4,5,6,7."
   puts "0 - Sair"
   print "Escolha uma opção: "
+
   escolha = gets.chomp.to_i
 
   case escolha
 
-
   when 1
-      system("./features/bh/setupLinux.sh")
+      system("./features/bh/setup.sh")
 
   when 2
-      system("./features/bh/unzipLinux.sh")
+      system("./features/bh/unzip.sh")
 
   when 3
     mongo.add_companies(create_hashes())
