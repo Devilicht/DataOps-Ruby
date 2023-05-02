@@ -8,6 +8,10 @@ class MongoInfoCompanies
     @companies = @db[:companies]
   end
 
+  def add_company(company)
+    @companies.insert_one(company)
+  end
+
   def add_companies(company_array)
     @companies.insert_many(company_array)
   end

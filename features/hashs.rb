@@ -1,5 +1,7 @@
+require_relative '../db/mongo.rb'
+
 def create_hashes
-    array_de_hashes = []
+  mongo = MongoInfoCompanies.new
 
     Dir.glob('./DataCNPJ/unzipped/*.ESTABELE') do |filename|
       CSV.foreach(filename, encoding: 'ISO-8859-1', col_sep: ';', headers: true) do |row|
@@ -36,9 +38,7 @@ def create_hashes
           "SITUAÇÃO ESPECIAL" => row[28],
           "DATA SITUAÇÃO ESPECIAL" => row[29]
         }
-        array_de_hashes << hash
+        mongo.add_company(hash)
       end
     end
-
-    return array_de_hashes
   end

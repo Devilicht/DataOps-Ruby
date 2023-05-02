@@ -1,5 +1,3 @@
-require 'csv'
-require 'axlsx'
 require_relative './features/hashs.rb'
 require_relative './db/mongo.rb'
 require_relative './features/getLocation.rb'
@@ -32,7 +30,7 @@ loop do
       system("./features/bh/unzip.sh")
 
   when 3
-    mongo.add_companies(create_hashes())
+    create_hashes()
 
   when 4
     percentual = mongo.percent_active_companies
