@@ -37,9 +37,3 @@ No projeto tem o arquivo "Gemfile" que ao você executar o comando "bundle insta
 E para os script shell conseguirem ser executados é necessario um "chmod +x features/bh/setupLinux.sh","chmod +x features/bh/unzipLinux.sh" estando no linux para ter permissão de executar o arquivo.
 Sendo assim, só iniciar o arquivo main.rb e seguir o menu.
 
-Segue um video com uma explicação melhor sobre:
-
-
-
-
-"https://drive.google.com/file/d/1Mdw6D_yRJp3e547debwiinDTvC6E_dcp/view?usp=share_link"
