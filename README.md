@@ -36,6 +36,6 @@ Primeiramente você precisa de todas dependencias instaladas, que são:
 
 No projeto tem o arquivo "Gemfile" que ao você executar o comando "bundle install" ele ja instala todos pacotes.
 
-E para os script shell conseguirem ser executados é necessario um "chmod +x features/bh/setupLinux.sh","chmod +x features/bh/unzipLinux.sh" estando no linux para ter permissão de executar o arquivo.
+E para os script shell conseguirem ser executados é necessario um "chmod +x features/bh/setupLinux.sh","chmod +x features/bh/unzipLinux.sh" estando no linux para ter permissão de executar o arquivo. Replique a logica do arquivo ".env.example" e cria seu proprio .env com a url de conexão.
 Sendo assim, só iniciar o arquivo main.rb e seguir o menu.
 
