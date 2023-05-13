@@ -1,9 +1,12 @@
+require 'dotenv/load'
 require 'mongo'
 require_relative '../features/getLocation.rb'
 
+
 class MongoInfoCompanies
   def initialize
-    @client = Mongo::Client.new('mongodb://admin:password@localhost:27017')
+    mongo_url = ENV['MONGO_URL']
+    @client = Mongo::Client.new(mongo_url)
     @db = @client.use('infoCompanies')
     @companies = @db[:companies]
   end

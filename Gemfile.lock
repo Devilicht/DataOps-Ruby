@@ -7,6 +7,7 @@ GEM
       rubyzip (~> 1.0.0)
     bson (4.15.0)
     csv (3.2.6)
+    dotenv (2.8.1)
     htmlentities (4.3.4)
     httparty (0.21.0)
       mini_mime (>= 1.0.0)
@@ -26,6 +27,7 @@ PLATFORMS
 DEPENDENCIES
   axlsx
   csv
+  dotenv
   httparty
   mongo
 

@@ -1,5 +1,5 @@
 # DataOPS Ruby
-O projeto consiste com uma funcionalidade de fazer o download dos arquivos .ESTABELE do site do governo, inserir tudo no mongoDB e manipulando seus dados diretamente do DB. Agora um pouco dos seus topicos.
+O projeto consiste com uma funcionalidade de fazer o download dos arquivos .ESTABELE do site do governo, inserir tudo no mongoDB e manipulando seus dados diretamente do DB. Agora um pouco dos seus topicos. 
 
 ## Tecnologias:
 
@@ -27,7 +27,7 @@ O projeto consiste com uma funcionalidade de fazer o download dos arquivos .ESTA
 O arquivo main herda todos outros arquivos e cria um menu onde voce pode realizar o download,descompactar, ler os arquivos e criar hashs inserindo-os no banco de dados,receber o percentual de empresas ativas, contagem de empresas abertar por ano, número de empresas num raio de 5km do cep "01422-000",tabela de correlação entre CNAE FISCAL PRINCIPAL e SECUNDÁRIA, além de voce poder exportar todas essas informações em um arquivo .csv ou .xlsx que é exportado para a pasta "exports".
 
 # Como usar:
-Primeiramente você precisa de todas dependencias instaladas, entre elas são:
+Primeiramente você precisa de todas dependencias instaladas, que são:
 
 -  axlsx
 -  csv
