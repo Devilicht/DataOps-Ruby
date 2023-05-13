@@ -33,6 +33,7 @@ Primeiramente você precisa de todas dependencias instaladas, que são:
 -  csv
 -  mongo
 -  httparty
+-  dotenv
 
 No projeto tem o arquivo "Gemfile" que ao você executar o comando "bundle install" ele ja instala todos pacotes.
 
